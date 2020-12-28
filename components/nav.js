@@ -1,55 +1,36 @@
 import React from 'react'
 import Link from 'next/link'
 
-const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
-].map(link => ({
-  ...link,
-  key: `nav-link-${link.href}-${link.label}`,
-}))
-
 const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
+  <nav className='mb-6 flex items-center justify-between flex-wrap bg-green-700 p-6 '>
+    <Link href='/home'>
+    <a >
+      <div className='flex items-center flex-shrink-0 text-white'>
+        <span className='font-semibold text-xl tracking-tight'>Job Feed</span>
+      </div>
+    </a>
+    </Link>
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
+    <div className='flex justify-end'>
+      <div className='text-sm lg:flex-grow'>
+        {/* <Link href='/posts'> */}
+        <a
+          href='/posts'
+          className='block mt-4 lg:inline-block lg:mt-0  hover:text-white font-weight-800 text-lg mr-4 text-gray-400 cursor-pointer'
+        >
+          Recent Posts
+        </a>
+        {/* </Link> */}
+        {/* <Link href='/orgs'> */}
+        <a
+          href='/orgs'
+          className='block mt-4 lg:inline-block lg:mt-0  hover:text-white font-weight-800 text-lg mr-4 text-gray-400 cursor-pointer'
+        >
+          Organizations
+        </a>
+        {/* </Link> */}
+      </div>
+    </div>
   </nav>
 )
 
